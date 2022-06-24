@@ -12,6 +12,10 @@ export class Article {
         this.contentFilePath = contentFilePath;
     }
 
+    /**
+     * Resets the cached properties. 
+     * This is useful if the content of an article is changed through one of the setters.
+     */
     clearData(){
         this._html = null;
         this._markdown = null;
@@ -21,6 +25,9 @@ export class Article {
         this._emphasizedTextData = null;
     }
 
+    /**
+     * Returns the path of the folder containg an article
+     */
     get path(){
         if(this._basePath) return this._basePath;
         this._basePath = this._contentFilePath ? path.dirname(this._contentFilePath) : null;
@@ -57,6 +64,9 @@ export class Article {
         this._rawData = data;
     }
 
+    /**
+     * Returns the raw text of an article document.
+     */
     get rawData(){
         if(this._rawData) return this._rawData;
 
