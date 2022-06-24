@@ -36,7 +36,7 @@ articleA.rawData = contentA;
 
 const articleB = new Article();
 articleB.rawData = contentB;
-const schemaPath = "./rules/tutorial-metadata-schema.json";
+const schemaPath = "./test/resources/tutorial-metadata-schema.json";
 
 test('Tests if missing/superfluous property is detected', () => {
     const errors = validateMetaData(articleA, schemaPath);

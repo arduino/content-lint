@@ -9,5 +9,6 @@ import { validateSyntaxSpecifiers } from './validations/code-blocks.js';
 import { validateNestedLists } from './validations/lists.js';
 import { validateBrokenLinks } from './validations/links.js';
 import { ConfigManager } from './logic/config-manager.js';
+import { validateFolderName } from './validations/naming.js';
 
-export { Validator, ArticleManager, validateDuplicatedOpeningHeading, validateHeadingsNesting, validateMaxLength, validateNumberedHeadings, validateOpeningHeadingLevel, validateSpacing, validateTitleCase, validateMetaData, validateRules, validateImageDescriptions, validateImagePaths, validateReferencedAssets, validateSVGFiles, validateSyntaxSpecifiers, validateNestedLists, validateBrokenLinks, ConfigManager  }
+export { Validator, ArticleManager, validateDuplicatedOpeningHeading, validateHeadingsNesting, validateMaxLength, validateNumberedHeadings, validateOpeningHeadingLevel, validateSpacing, validateTitleCase, validateMetaData, validateRules, validateImageDescriptions, validateImagePaths, validateReferencedAssets, validateSVGFiles, validateSyntaxSpecifiers, validateNestedLists, validateBrokenLinks, ConfigManager, validateFolderName }
