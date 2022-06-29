@@ -7,7 +7,7 @@ import { ValidationIssue } from '../domain/validation-issue.js';
  */
 function validateFolderName(article) {
     let errorsOccurred = [];
-    const issueType = ValidationIssue.Type.WARNING;
+    const issueType = ValidationIssue.Type.ERROR;
 
     if(article.path.indexOf("_") != -1){
         const errorMessage = "Folder path uses discouraged underscore.";

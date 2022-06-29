@@ -1,6 +1,6 @@
 {
   "name": "content-lint",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "module",
   "main": "index.js",
   "description": "A node.js infrastructure to validate markdown content.",
