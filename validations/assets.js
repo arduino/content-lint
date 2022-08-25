@@ -83,4 +83,17 @@ function validateSVGFiles(article){
     return errorsOccurred;
 }
 
-export { validateImageDescriptions, validateImagePaths, validateReferencedAssets, validateSVGFiles }
+/**
+ * Checks if the article uses one of the allowed assets folder name.
+ * @param {Article} article 
+ * @returns an array of ValidationIssue objects for the found issues.
+ */
+function validateAssetsFolderName(article){
+    if(article.assets.length > 0 && article.assetsFolder === null){
+        const errorMessage = "No standard assets directory found";
+        return new ValidationIssue(errorMessage, article.contentFilePath, ValidationIssue.Type.WARNING);
+    }
+    return [];
+}
+
+export { validateImageDescriptions, validateImagePaths, validateReferencedAssets, validateSVGFiles, validateAssetsFolderName }

@@ -271,8 +271,6 @@ export class Article {
             return this._assetFolder;
         }        
 
-        console.log(`😬 WARNING: No standard assets directory (${validDirectories.join(" | ")}) found in: ${this.path}`);        
-        
         // Try to figure out assets path from the referenced images
         const usedAssetPaths = this.referencedImages.map((assetPath) => {
             const directory = path.dirname(assetPath)
