@@ -89,7 +89,8 @@ function validateSVGFiles(article){
  * @returns an array of ValidationIssue objects for the found issues.
  */
 function validateAssetsFolderName(article){
-    if(article.assets.length > 0 && article.assetsFolder === null){
+
+    if(article.assets.length > 0 && article.assetsFolder != "assets"){
         const errorMessage = "No standard assets directory found";
         return new ValidationIssue(errorMessage, article.contentFilePath, ValidationIssue.Type.WARNING);
     }
