@@ -38,7 +38,7 @@ function validateFolderName(article) {
 
     if(article.referencedImages.length == 0) return [];
 
-    if(article.referencedImages.length > 0 && article.assetsFolder === null){
+    if(article.assetsFolder === null){
         const errorMessage = "Multiple asset directories used";
         return [new ValidationIssue(errorMessage, article.contentFilePath)];
     }
