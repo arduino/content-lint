@@ -83,25 +83,4 @@ function validateSVGFiles(article){
     return errorsOccurred;
 }
 
-/**
- * Checks if the article uses one of the allowed assets folder name.
- * @param {Article} article 
- * @param {String} expectedFolderName the expected assets folder name
- * @returns an array of ValidationIssue objects for the found issues.
- */
-function validateAssetsFolderName(article, expectedFolderName){
-
-    if(article.assets.length > 0 && article.assetsFolder === null){
-        const errorMessage = "Multiple asset directories used";
-        return new ValidationIssue(errorMessage, article.contentFilePath);
-    }
-
-    if(article.assetsFolder !== expectedFolderName){
-        const errorMessage = "Unexpected or deprecated assets directory used";
-        return new ValidationIssue(errorMessage, article.contentFilePath,  ValidationIssue.Type.WARNING);
-    }     
-
-    return [];
-}
-
-export { validateImageDescriptions, validateImagePaths, validateReferencedAssets, validateSVGFiles, validateAssetsFolderName }
+export { validateImageDescriptions, validateImagePaths, validateReferencedAssets, validateSVGFiles }
