@@ -40,13 +40,13 @@ const schemaPath = "./test/resources/tutorial-metadata-schema.json";
 
 test('Tests if missing/superfluous property is detected', () => {
     const errors = validateMetaData(articleA, schemaPath);
-    console.log(errors);
+    // console.log(errors);
     expect(errors.length).toBe(2);
 });
 
 
 test('Tests if title lenght restriction is detected', () => {
     const errors = validateMetaData(articleB, schemaPath);
-    console.log(errors);
+    // console.log(errors);
     expect(errors.length).toBe(1);
 });
