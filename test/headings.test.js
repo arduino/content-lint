@@ -42,7 +42,7 @@ test('Test if forbidden opening heading level is detected', () => {
 
 test('Test if missing title case is detected', () => {
     const errors = validateTitleCase(article);
-    console.log(errors);
+    // console.log(errors);
     expect(errors.length).toBe(1);
     expect(errors[0].lineNumber).toBe(16);
     expect(errors[0].column).toBe(1);
@@ -50,7 +50,7 @@ test('Test if missing title case is detected', () => {
 
 test('Test if too long titles are detected', () => {
     const errors = validateMaxLength(article, 30);
-    console.log(errors);
+    // console.log(errors);
     expect(errors.length).toBe(1);
     expect(errors[0].lineNumber).toBe(18);
     expect(errors[0].column).toBe(1);
@@ -58,7 +58,7 @@ test('Test if too long titles are detected', () => {
 
 test('Test if duplicated opening titles are detected', () => {
     const errors = validateDuplicatedOpeningHeading(article);
-    console.log(errors);
+    // console.log(errors);
     expect(errors.length).toBe(1);
     expect(errors[0].lineNumber).toBe(5);
     expect(errors[0].column).toBe(1);
