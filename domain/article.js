@@ -23,6 +23,7 @@ export class Article {
         this._codeBlockData = null;
         this._referencedAssetsPaths = null;
         this._emphasizedTextData = null;
+        this._assetFolder = null;
     }
 
     /**
@@ -259,28 +260,20 @@ export class Article {
      */
     get assetsFolder(){
         if(this._assetFolder) return this._assetFolder;
-        const validDirectories = ["assets", "images"];
 
-        if (existsSync(`${this.path}/${validDirectories[0]}/`)){
-            this._assetFolder = validDirectories[0];
-            return this._assetFolder;
-        }
-        if (existsSync(`${this.path}/${validDirectories[1]}/`)){
-            console.log("😬 WARNING: Using deprecated 'images' directory to store assets. Location:", this.path);
-            this._assetFolder = validDirectories[1];
-            return this._assetFolder;
-        }        
-
-        // Try to figure out assets path from the referenced images
+        // Figure out assets path(s) from the referenced images
         const usedAssetPaths = this.referencedImages.map((assetPath) => {
             const directory = path.dirname(assetPath)
             if(!directory) return null;
             return directory.split("/")[0];
-        })
+        });
 
         const uniqueAssetPaths = usedAssetPaths.filter((element, index) => { return usedAssetPaths.indexOf(element) == index; });
-        if(uniqueAssetPaths.length == 1) return uniqueAssetPaths[0];
-        return null;
+        if(uniqueAssetPaths.length == 1) {
+            this._assetFolder = uniqueAssetPaths[0];
+        }
+
+        return this._assetFolder;
     }
 
     /**
