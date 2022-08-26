@@ -36,14 +36,14 @@ function validateFolderName(article) {
  */
  function validateAssetsFolderName(article, expectedFolderName){
 
-    if(article.assets.length > 0 && article.assetsFolder === null){
+    if(article.referencedImages.length > 0 && article.assetsFolder === null){
         const errorMessage = "Multiple asset directories used";
-        return new ValidationIssue(errorMessage, article.contentFilePath);
+        return [new ValidationIssue(errorMessage, article.contentFilePath)];
     }
 
     if(article.assetsFolder !== expectedFolderName){
-        const errorMessage = "Unexpected or deprecated assets directory used";
-        return new ValidationIssue(errorMessage, article.contentFilePath,  ValidationIssue.Type.WARNING);
+        const errorMessage = `Unexpected or deprecated assets directory '${article.assetsFolder}' used`;
+        return [new ValidationIssue(errorMessage, article.contentFilePath,  ValidationIssue.Type.WARNING)];
     }     
 
     return [];
