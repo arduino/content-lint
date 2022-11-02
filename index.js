@@ -11,4 +11,8 @@ import { validateBrokenLinks } from './validations/links.js';
 import { ConfigManager } from './logic/config-manager.js';
 import { validateFolderName } from './validations/naming.js';
 
-export { Validator, ArticleManager, validateDuplicatedOpeningHeading, validateHeadingsNesting, validateMaxLength, validateNumberedHeadings, validateOpeningHeadingLevel, validateSpacing, validateTitleCase, validateMetaData, validateRules, validateImageDescriptions, validateImagePaths, validateReferencedAssets, validateSVGFiles, validateSyntaxSpecifiers, validateNestedLists, validateBrokenLinks, ConfigManager, validateFolderName }
+import { fixMissingTitleCase } from './fixes/headings.js'
+import { fixUnusedAssets } from './fixes/assets.js';
+import { replaceItalicEmphasisWithBoldEmphasis } from './fixes/styling.js';
+
+export { Validator, ArticleManager, validateDuplicatedOpeningHeading, validateHeadingsNesting, validateMaxLength, validateNumberedHeadings, validateOpeningHeadingLevel, validateSpacing, validateTitleCase, validateMetaData, validateRules, validateImageDescriptions, validateImagePaths, validateReferencedAssets, validateSVGFiles, validateSyntaxSpecifiers, validateNestedLists, validateBrokenLinks, ConfigManager, validateFolderName, fixMissingTitleCase, fixUnusedAssets, replaceItalicEmphasisWithBoldEmphasis }
