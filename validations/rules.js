@@ -35,7 +35,7 @@ function validateRules(article, rulesFilePath, debug) {
             console.log("💣 File content couldn't be read:", article.contentFilePath);
             continue;
         }
-        const modifiers = rules.regexModifiers ?? "gm"
+        const modifiers = rule.regexModifiers ?? "gm"
         const regex = new RegExp(rule.regex, modifiers);
         const matches = [...content.matchAll(regex)];
         const ruleType = rule.type == "warning" ? ValidationIssue.Type.WARNING : ValidationIssue.Type.ERROR;
