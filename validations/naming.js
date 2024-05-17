@@ -16,7 +16,7 @@ function validateFolderName(article, ignoreList = []) {
     });
 
     for (let folder of folders) {
-        if(ignoreList.includes(folder)){
+        if(ignoreList && ignoreList.includes(folder)){
             continue;
         }
 
